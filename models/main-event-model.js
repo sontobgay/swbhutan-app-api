@@ -3,26 +3,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var MainEventSchema = new Schema({
-    title: {
+    day: {
         type: String,
         required: true
     },
-    detail: {
+    event_day_title: {
         type: String,
         required: true
     },
-    event_date: {
-        type: String,
-        required: true
+    session_group: {
+        type: String
     },
-    event_time: {
-        type: String,
-        required: true
-    },
-    event_day: {
-        type: Number,
-        required: true
-    },
+    sessions: [{ time: String, session_title: String, remark: String}],
+    
     created_at: Date
 });
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+<% include ../partials/nav.ejs %>
+
+<div class="container">
+    <div class="row">
+        
+            <div class="col-md-12">
+                <h4><b>Registered Participants for Business Idea Pitching at CLCS - Trongsa</b></h4>
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Sl#</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Occupation</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% for (var i = 0; i < registrationPitchings.length; i++) { %>
+                      <tr>
+                        <td></td>
+                        <td><%= registrationPitchings[i].full_name %></td>
+                        <% if (registrationPitchings[i].occupation === 1) { %>
+                            <td>Studying</td>
+                        <% } else if (registrationPitchings[i].occupation === 2) { %>
+                                <td>Working</td>
+                            <% } else { %> 
+                                <td>Looking for Job</td>
+                            <% } %>
+                        <td><%= registrationPitchings[i].mobile %></td>
+                        <td><%= registrationPitchings[i].email %></td>
+                      </tr>
+                    <% } %>
+                    </tbody>
+                  </table>
+            </div>
+    </div>
+        <% if (pages > 0) { %>
+            <ul class="pagination text-center">
+                <% if (current == 1) { %>
+                    <li class="disabled"><a>First</a></li>
+                <% } else { %>
+                    <li><a href="/registered-participants-clcs/1">First</a></li>
+                <% } %>
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                    <li class="disabled"><a>...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="active"><a><%= i %></a></li>
+                    <% } else { %>
+                        <li><a href="/registered-participants-clcs/<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="disabled"><a>Last</a></li>
+                <% } else { %>
+                    <li><a href="/registered-participants-clcs/<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+        <% } %>
+</div>
+
+</body>
+</html>

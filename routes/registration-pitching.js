@@ -14,8 +14,8 @@ app.get('/registration-pitchings', function(req, res) {
 });
 
 app.post('/registration-pitchings', function(req, res) {
-    if(!req.body.full_name) {
-        return res.status(400).send({"success": false, "msg": "Enter Full Name"});
+    if(!req.body.full_name || !req.body.citizenship_id || !req.body.pitch_area)  {
+        return res.status(400).send({"success": false, "msg": "Some fields are blank. Full Name, Citizenship ID, and Pitch Location are all compulsory!"});
     }
 
     var newRegistrationPitching = new RegistrationPitching({
@@ -24,7 +24,7 @@ app.post('/registration-pitchings', function(req, res) {
         occupation: req.body.occupation,
         pitch_area: req.body.pitch_area,
         mobile: req.body.mobile,
-        email: req.body.email,
+        email: req.body.email
     });
 
     newRegistrationPitching.save(function (err) {

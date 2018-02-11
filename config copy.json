@@ -1,0 +1,4 @@
+{
+    "database": "mongodb://localhost/swbhutan-app-api-data"
+}
+

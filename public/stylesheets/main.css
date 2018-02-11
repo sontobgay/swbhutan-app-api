@@ -2,27 +2,56 @@
   /* background: #532F8C; */
   background: #0db14b;
   color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: rgb(171, 233, 152);
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
+  padding-bottom: 80px; 
+}
 
+.jumbotron .btn-primary {
+  background: #845ac7;
+  border-color: #845ac7; 
+}
+
+.jumbotron .btn-primary:hover {
+    background: #7646c1; 
+  }
+
+.jumbotron p, h3 {
+  color: #d9ccee;
+  max-width: 75%;
+  margin: 1em auto 1em; 
+}
+
+.navbar + .jumbotron {
+  margin-top: -20px; 
+}
+
+.jumbotron .lang-logo {
+  display: block;
+  background: rgb(171, 233, 152);
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border: 2px solid white; 
+}
+
+.jumbotron .lang-logo img {
+    max-width: 100%; 
+  }
+
+.footer {
+  padding-bottom: 25px;
+}
+
+body {
+  counter-reset: Serial;
+}
+
+table {
+  border-collapse: separate;
+}
+
+tr td:first-child:before {
+  counter-increment: Serial;
+  content: counter(Serial) ")";
+}
